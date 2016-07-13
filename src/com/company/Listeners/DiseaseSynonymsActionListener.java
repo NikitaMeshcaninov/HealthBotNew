@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 
 public class DiseaseSynonymsActionListener implements ActionListener {
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent ev) {
         Disease firstDidease = new Disease();
-        firstDidease.setDiseaseNameSynonyms(e.getActionCommand());
+        firstDidease.setDiseaseNameSynonyms(ev.getActionCommand());
         System.out.println(firstDidease.getDiseaseName() + "  " + firstDidease.getDiseaseID()+
                 "  " + firstDidease.getDiseaseConnections()+ "  " + firstDidease.getDiseaseNameSynonyms());
     }

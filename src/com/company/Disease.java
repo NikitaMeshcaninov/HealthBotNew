@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Disease {
     private static String diseaseID;
     private static String diseaseName;
-
     private static String diseaseNameSynonyms;
     private static String diseaseConnections;
     private static String specialistType;
