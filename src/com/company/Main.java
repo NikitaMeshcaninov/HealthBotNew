@@ -1,10 +1,12 @@
 package com.company;
 
-public class Main {
-public static UI win;
-    public static void main(String[] args) {
+import com.company.UI.StartUI;
 
-        win = new UI();
-        win.healthBotWindow();
+public class Main {
+    public static StartUI loginWindow;
+
+    public static void main(String[] args) {
+        loginWindow = new StartUI();
+        loginWindow.healthBotLoginWindow();
     }
 }

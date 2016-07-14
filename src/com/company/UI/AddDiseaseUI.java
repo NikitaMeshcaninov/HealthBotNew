@@ -1,12 +1,11 @@
-package com.company;
+package com.company.UI;
 
 import com.company.Listeners.*;
-
 import javax.swing.*;
 import java.awt.*;
 
 
-public class UI extends JFrame {
+public class AddDiseaseUI extends JFrame {
 
     private JLabel disease = new JLabel("Disease :");
     private JTextField diseaseTextField = new JTextField(10);
@@ -55,27 +54,13 @@ public class UI extends JFrame {
 
         JFrame frame = new JFrame("Add Disease");
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         frame.setContentPane(healthBotWindowPanel);
 
         frame.setSize(400, 400);
         frame.setVisible(true);
 
-        HealthBotListener pushButtonEvent = new HealthBotListener();
+        AddDiseaseActionListener pushButtonEvent = new AddDiseaseActionListener();
         addDiseaseButton.addActionListener(pushButtonEvent);
 
-        DiseaseNameActionListener diseaseName = new DiseaseNameActionListener();
-        diseaseTextField.addActionListener(diseaseName);
-
-        DiseaseIDActionListener diseaseID = new DiseaseIDActionListener();
-        deseaseIDtextField.addActionListener(diseaseID);
-
-
-        DiseaseSynonymsActionListener diseaseSynonymus = new DiseaseSynonymsActionListener();
-        diseaseNameSynonymsfield.addActionListener(diseaseSynonymus);
-
-        DiseaseConectionActionListener diseaseConections = new DiseaseConectionActionListener();
-        diseaseConnectionsField.addActionListener(diseaseConections);
     }
 }
