@@ -10,8 +10,8 @@ import java.util.Date;
 public class DBWorker {
     private String DB_DRIVER = "com.mysql.jdbc.Driver";
     private String DB_USER = "root";
-    private String DB_PASSWORD = "root";
-    private String DB_CONNECTION = "jdbc:mysql://localhost:3306/tamagochi_life";
+    private String DB_PASSWORD = "kd-x150";
+    private String DB_CONNECTION = "jdbc:mysql://localhost:3306/hb";
     //jdbc:mysql://hostname:port/dbname
     private static int id = 1;
 
@@ -52,17 +52,17 @@ public class DBWorker {
                 + ")";
 
         try (Connection dbConnection = getDBConnection();
-             Statement statement = dbConnection.createStatement();) {
+             Statement statement = dbConnection.createStatement()) {
             statement.execute(createTableSQL);
-            System.out.println("Table \"HBDisease\" is created!");
+            System.out.println("Table \"Disease\" is created!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void createDisease(String name) {
-        String insertTableSQL = "INSERT INTO HBDisease"
-                + "(diseaseID, diseaseName, diseaseNameSynonyms, " +
+        String insertTableSQL = "INSERT INTO Disease"
+                + "(diseaseName, diseaseNameSynonyms, " +
                 "diseaseConnections, specialistType) VALUES";
 
 
