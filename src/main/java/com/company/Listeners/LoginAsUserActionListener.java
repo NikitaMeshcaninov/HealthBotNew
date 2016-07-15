@@ -14,7 +14,11 @@ public class LoginAsUserActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         DBWorker someDBWorker = new DBWorker();
-        someDBWorker.testTypeFromeDB();
+        try {
+            someDBWorker.createHBDiseaseTable();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
 
 
     }

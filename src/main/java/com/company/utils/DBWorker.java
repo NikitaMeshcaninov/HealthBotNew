@@ -1,8 +1,12 @@
 package com.company.utils;
 
+import com.company.Listeners.LoginAsDoctorActionListener;
+
 import java.sql.*;
 import java.text.DateFormat;
 import java.util.Date;
+
+import static com.company.Listeners.LoginAsDoctorActionListener.win;
 
 /**
  * Created by cube on 09.07.2016.
@@ -24,7 +28,7 @@ public class DBWorker {
         return dateFormat.format(today.getTime());
     }
 
-    public void testTypeFromeDB(){
+    public void testTypeFromeDB() {
         try (Connection connection = getDBConnection();
              PreparedStatement preparedStatement =
                      connection.prepareStatement("SELECT * FROM users")) {
@@ -75,19 +79,20 @@ public class DBWorker {
         }
     }
 
-    public void createDisease(String name) {
-        String insertTableSQL = "INSERT INTO Disease"
-                + "(diseaseName, diseaseNameSynonyms, " +
-                "diseaseConnections, specialistType) VALUES";
+    public void addDiseaseToDB() {
+        String insertTableSQL = "INSERT INTO disease (name, synonymus) VALUES ('" +
+                LoginAsDoctorActionListener.win.getDiseaseTextField().getText() + "' , " +
+                "'" + LoginAsDoctorActionListener.win.getDiseaseNameSynonymsfield().getText() + "')";
 
 
         try (Connection dbConnection = getDBConnection();// Непонятно , что тут происходит
              PreparedStatement preparedStatement = dbConnection.prepareStatement(insertTableSQL)) {
-            preparedStatement.setInt(1, id);
-            preparedStatement.setString(2, name);
+
             preparedStatement.execute();
-            System.out.println("Table \"HBDesiase\" is created!");
+            System.out.println("Disease" + LoginAsDoctorActionListener.win.getDiseaseTextField().getText()
+                    + "successful add to DB!!!");
             id++;
+            System.exit(0);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
