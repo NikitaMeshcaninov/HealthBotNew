@@ -1,13 +1,21 @@
 package com.company.utils;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import java.nio.file.Path;
 
 public class HibernateUtil {
 
     private static SessionFactory sessionFactory = null;
 
+
     static {
-        sessionFactory = new Configuration().configure().buildSessionFactory();
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static SessionFactory getSessionFactory() {
