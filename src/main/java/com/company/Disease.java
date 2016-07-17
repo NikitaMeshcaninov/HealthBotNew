@@ -15,7 +15,7 @@ public class Disease {
     private static String diseaseNameSynonyms;
     @Column(name="specialistType")
     private static String specialistType;
-    @Column(name="diseasedescription")
+
 
     public static String getDiseaseID() {
         return diseaseID;

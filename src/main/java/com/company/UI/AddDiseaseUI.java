@@ -13,8 +13,8 @@ public class AddDiseaseUI extends JFrame {
     private JTextField deseaseIDtextField = new JTextField(10);
     private JLabel diseaseNameSynonyms = new JLabel("diseaseNameSynonyms :");
     private JTextField diseaseNameSynonymsfield = new JTextField(30);
-    private JLabel diseaseConnections = new JLabel("diseaseConnections :");
-    private JTextField diseaseConnectionsField = new JTextField(30);
+    private JLabel diseaseSpecialistType = new JLabel("Specialist type :");
+    private JTextField diseaseSpecialistTypeField = new JTextField(30);
     private JButton addDiseaseButton = new JButton("Add Disease");
 
 
@@ -30,8 +30,8 @@ public class AddDiseaseUI extends JFrame {
         return diseaseNameSynonymsfield;
     }
 
-    public JTextField getDiseaseConnectionsField() {
-        return diseaseConnectionsField;
+    public JTextField getDiseaseSpecialistTypeField() {
+        return diseaseSpecialistTypeField;
     }
 
     public void healthBotWindow() {
@@ -47,8 +47,8 @@ public class AddDiseaseUI extends JFrame {
         healthBotWindowPanel.add(deseaseIDtextField);
         healthBotWindowPanel.add(diseaseNameSynonyms);
         healthBotWindowPanel.add(diseaseNameSynonymsfield);
-        healthBotWindowPanel.add(diseaseConnections);
-        healthBotWindowPanel.add(diseaseConnectionsField);
+        healthBotWindowPanel.add(diseaseSpecialistType);
+        healthBotWindowPanel.add(diseaseSpecialistTypeField);
         healthBotWindowPanel.add(addDiseaseButton);
 
 
