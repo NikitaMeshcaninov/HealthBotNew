@@ -1,13 +1,21 @@
 package com.company;
 
+import javax.persistence.*;
 import java.util.ArrayList;
-
+@Entity
+@Table(name="disease")
 public class Disease {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="diseaseID")
     private static String diseaseID;
+    @Column(name="diseaseName")
     private static String diseaseName;
+    @Column(name="diseaseNameSynonyms")
     private static String diseaseNameSynonyms;
-    private static String diseaseConnections;
+    @Column(name="specialistType")
     private static String specialistType;
+    @Column(name="diseasedescription")
 
     public static String getDiseaseID() {
         return diseaseID;
@@ -17,14 +25,13 @@ public class Disease {
         Disease.diseaseID = diseaseID;
     }
 
-    public String getDiseaseName() {
+    public static String getDiseaseName() {
         return diseaseName;
     }
 
-    public void setDiseaseName(String diseaseName) {
-        this.diseaseName = diseaseName;
+    public static void setDiseaseName(String diseaseName) {
+        Disease.diseaseName = diseaseName;
     }
-
 
     public static String getDiseaseNameSynonyms() {
         return diseaseNameSynonyms;
@@ -34,19 +41,11 @@ public class Disease {
         Disease.diseaseNameSynonyms = diseaseNameSynonyms;
     }
 
-    public static String getDiseaseConnections() {
-        return diseaseConnections;
-    }
-
-    public static void setDiseaseConnections(String diseaseConnections) {
-        Disease.diseaseConnections = diseaseConnections;
-    }
-
-    public String getSpecialistType() {
+    public static String getSpecialistType() {
         return specialistType;
     }
 
-    public void setSpecialistType(String specialistType) {
-        this.specialistType = specialistType;
+    public static void setSpecialistType(String specialistType) {
+        Disease.specialistType = specialistType;
     }
 }

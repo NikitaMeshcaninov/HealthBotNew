@@ -12,8 +12,8 @@ public class AddDiseaseActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        DBWorker adder = new DBWorker();
-        adder.addDiseaseToDB();
+        Disease angina = new Disease();
+        angina.setDiseaseName("Angina");
     }
 }
 
