@@ -6,16 +6,15 @@ import java.util.ArrayList;
 @Table(name="disease")
 public class Disease {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="diseaseID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "diseaseID")
     private static String diseaseID;
-    @Column(name="diseaseName")
+    @Column(name = "diseaseName")
     private static String diseaseName;
-    @Column(name="diseaseNameSynonyms")
+    @Column(name = "diseaseNameSynonyms")
     private static String diseaseNameSynonyms;
-    @Column (name = "specialistType")
+    @Column(name = "specialistType")
     private static String specialistType;
-
 
     public static String getDiseaseID() {
         return diseaseID;
