@@ -8,6 +8,7 @@ import org.hibernate.Session;
 public class HealthEngine {
 
     public void addProfession() {
+        HibernateUtil.init();
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Disease disease = new Disease();

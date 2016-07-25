@@ -15,14 +15,9 @@ public class LoginAsDoctorActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(Main.loginWindow.getPasswordTextField().getText());
-        //if (Main.loginWindow.getPasswordTextField().getText() == "1111") {
         win = new AddDiseaseUI();
         win.healthBotWindow();
         Main.loginWindow.setVisible(false);
         Main.loginWindow.dispose();
-
-        //}
-
-
     }
 }

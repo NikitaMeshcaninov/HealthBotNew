@@ -2,49 +2,59 @@ package com.company;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+
 @Entity
-@Table(name="disease")
+@Table(name = "disease")
 public class Disease {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "diseaseID")
-    private static String diseaseID;
+    private long diseaseID;
     @Column(name = "diseaseName")
-    private static String diseaseName;
+    private String diseaseName;
     @Column(name = "diseaseNameSynonyms")
-    private static String diseaseNameSynonyms;
+    private String diseaseNameSynonyms;
     @Column(name = "specialistType")
-    private static String specialistType;
+    private String specialistType;
 
-    public static String getDiseaseID() {
+    public Disease(String diseaseName, String diseaseNameSynonyms, String specialistType) {
+        this.diseaseName = diseaseName;
+        this.diseaseNameSynonyms = diseaseNameSynonyms;
+        this.specialistType = specialistType;
+    }
+
+    public Disease() {
+    }
+
+    public long getDiseaseID() {
         return diseaseID;
     }
 
-    public static void setDiseaseID(String diseaseID) {
-        Disease.diseaseID = diseaseID;
+    public void setDiseaseID(long diseaseID) {
+        this.diseaseID = diseaseID;
     }
 
-    public static String getDiseaseName() {
+    public String getDiseaseName() {
         return diseaseName;
     }
 
-    public static void setDiseaseName(String diseaseName) {
-        Disease.diseaseName = diseaseName;
+    public void setDiseaseName(String diseaseName) {
+        this.diseaseName = diseaseName;
     }
 
-    public static String getDiseaseNameSynonyms() {
+    public String getDiseaseNameSynonyms() {
         return diseaseNameSynonyms;
     }
 
-    public static void setDiseaseNameSynonyms(String diseaseNameSynonyms) {
-        Disease.diseaseNameSynonyms = diseaseNameSynonyms;
+    public void setDiseaseNameSynonyms(String diseaseNameSynonyms) {
+        this.diseaseNameSynonyms = diseaseNameSynonyms;
     }
 
-    public static String getSpecialistType() {
+    public String getSpecialistType() {
         return specialistType;
     }
 
-    public static void setSpecialistType(String specialistType) {
-        Disease.specialistType = specialistType;
+    public void setSpecialistType(String specialistType) {
+        this.specialistType = specialistType;
     }
 }
