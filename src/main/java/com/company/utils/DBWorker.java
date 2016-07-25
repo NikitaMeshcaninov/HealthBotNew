@@ -12,7 +12,7 @@ import static com.company.Listeners.LoginAsDoctorActionListener.win;
  * Created by cube on 09.07.2016.
  */
 public class DBWorker {
-    private String DB_DRIVER = "com.mysql.jdbc.Driver";
+    private String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private String DB_USER = "root";
     private String DB_PASSWORD = "kd-x150";
     private String DB_CONNECTION = "jdbc:mysql://localhost:3306/hb";

@@ -13,7 +13,7 @@ public class Disease {
     private static String diseaseName;
     @Column(name="diseaseNameSynonyms")
     private static String diseaseNameSynonyms;
-    @Column(name="specialistType")
+    @Column (name = "specialistType")
     private static String specialistType;
 
 
