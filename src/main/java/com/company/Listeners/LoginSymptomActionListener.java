@@ -8,18 +8,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Nikita on 14.07.2016.
+ * Created by Nikita on 26.07.2016.
  */
-public class LoginAsDoctorActionListener implements ActionListener {
-    public static DiseaseUI win;
+public class LoginSymptomActionListener implements ActionListener {
+    public static SymptomUi winSymptom;
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (Main.loginWindow.getPasswordTextField().getText().equals("1111")){
-        win = new DiseaseUI();
-        win.healthBotWindow();
-        Main.loginWindow.getFrame().setVisible(false);
+            winSymptom = new SymptomUi();
+            winSymptom.addSymptomWindow();
+            Main.loginWindow.getFrame().setVisible(false);
         }
     }
 }

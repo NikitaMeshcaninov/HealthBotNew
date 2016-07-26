@@ -5,7 +5,10 @@ import com.company.HealthEngine;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddDiseaseActionListener implements ActionListener {
+/**
+ * Created by Nikita on 26.07.2016.
+ */
+public class AddSymptomActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 

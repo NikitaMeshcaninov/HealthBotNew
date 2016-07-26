@@ -5,12 +5,15 @@ import com.company.HealthEngine;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddDiseaseActionListener implements ActionListener {
+/**
+ * Created by Nikita on 26.07.2016.
+ */
+public class DelSymptomActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
         HealthEngine someInstance = new HealthEngine();
-        someInstance.addSymptom();
+        someInstance.delSymptom();
     }
 }
 
