@@ -5,13 +5,11 @@ import com.company.HealthEngine;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddDiseaseActionListener implements ActionListener {
+public class DelDiseaseActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
         HealthEngine someInstance = new HealthEngine();
-        someInstance.addDisease();
+        someInstance.delDisease();
     }
 }
-
-

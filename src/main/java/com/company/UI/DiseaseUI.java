@@ -5,21 +5,26 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class AddDiseaseUI extends JFrame {
+public class DiseaseUI extends JFrame {
 
     private JLabel disease = new JLabel("Disease :");
     private JTextField diseaseTextField = new JTextField(10);
     private JLabel deseaseID = new JLabel("deseaseID :");
-    private JTextField deseaseIDtextField = new JTextField(10);
+    public JTextField deseaseIDtextField = new JTextField(10);
     private JLabel diseaseNameSynonyms = new JLabel("diseaseNameSynonyms :");
     private JTextField diseaseNameSynonymsfield = new JTextField(30);
     private JLabel diseaseSpecialistType = new JLabel("Specialist type :");
     private JTextField diseaseSpecialistTypeField = new JTextField(30);
     private JButton addDiseaseButton = new JButton("Add Disease");
+    private JButton delDiseaseButton = new JButton("Del Disease");
 
 
     public JTextField getDiseaseTextField() {
         return diseaseTextField;
+    }
+
+    public void setDeseaseIDtextField(JTextField deseaseIDtextField) {
+        this.deseaseIDtextField = deseaseIDtextField;
     }
 
     public JTextField getDeseaseIDtextField() {
@@ -50,17 +55,21 @@ public class AddDiseaseUI extends JFrame {
         healthBotWindowPanel.add(diseaseSpecialistType);
         healthBotWindowPanel.add(diseaseSpecialistTypeField);
         healthBotWindowPanel.add(addDiseaseButton);
+        healthBotWindowPanel.add(delDiseaseButton);
 
 
-        JFrame frame = new JFrame("Add Disease");
+        JFrame frame = new JFrame("Disease");
 
         frame.setContentPane(healthBotWindowPanel);
 
         frame.setSize(400, 400);
         frame.setVisible(true);
 
-        AddDiseaseActionListener pushButtonEvent = new AddDiseaseActionListener();
-        addDiseaseButton.addActionListener(pushButtonEvent);
+        AddDiseaseActionListener pushButtonEvent01 = new AddDiseaseActionListener();
+        addDiseaseButton.addActionListener(pushButtonEvent01);
+
+        DelDiseaseActionListener pushButtonEvent02 = new DelDiseaseActionListener();
+        delDiseaseButton.addActionListener(pushButtonEvent02);
 
     }
 }

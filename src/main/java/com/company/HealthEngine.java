@@ -1,13 +1,14 @@
 package com.company;
 
 
+import com.company.Entitys.Disease;
 import com.company.Listeners.LoginAsDoctorActionListener;
 import com.company.utils.HibernateUtil;
 import org.hibernate.Session;
 
 public class HealthEngine {
 
-    public void addProfession() {
+    public void addDisease() {
         HibernateUtil.init();
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
@@ -16,6 +17,27 @@ public class HealthEngine {
         disease.setDiseaseNameSynonyms(LoginAsDoctorActionListener.win.getDiseaseNameSynonymsfield().getText());
         disease.setSpecialistType(LoginAsDoctorActionListener.win.getDiseaseSpecialistTypeField().getText());
         session.save(disease);
+        session.getTransaction().commit();
+        //printId();
+    }
+
+    public void printId(){ //мотод который возвращает ID присвоенный новой болезни (не пашет)
+        HibernateUtil.init();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.createQuery("SELECT * from disease WHERE diseaseName =  " + LoginAsDoctorActionListener.win.getDiseaseTextField().getText());
+       // Disease disease = (Disease) session.load(Disease.class).list;
+
+        session.getTransaction().commit();
+
+        LoginAsDoctorActionListener.win.deseaseIDtextField.setText("сюда звпилить ID");
+    }
+
+    public void delDisease(){
+        HibernateUtil.init();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.createQuery("DELETE FROM Disease where diseaseID = " + LoginAsDoctorActionListener.win.getDeseaseIDtextField().getText()).executeUpdate();
         session.getTransaction().commit();
     }
 

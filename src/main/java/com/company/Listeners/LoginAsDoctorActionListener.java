@@ -1,7 +1,7 @@
 package com.company.Listeners;
 
 import com.company.Main;
-import com.company.UI.AddDiseaseUI;
+import com.company.UI.DiseaseUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,14 +10,15 @@ import java.awt.event.ActionListener;
  * Created by Nikita on 14.07.2016.
  */
 public class LoginAsDoctorActionListener implements ActionListener {
-    public static AddDiseaseUI win;
+    public static DiseaseUI win;
 
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(Main.loginWindow.getPasswordTextField().getText());
-        win = new AddDiseaseUI();
+        if (Main.loginWindow.getPasswordTextField().getText().equals("1111")){
+        win = new DiseaseUI();
         win.healthBotWindow();
-        Main.loginWindow.setVisible(false);
-        Main.loginWindow.dispose();
+        Main.loginWindow.getFrame().setVisible(false);
+        }
     }
 }

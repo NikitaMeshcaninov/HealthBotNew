@@ -13,7 +13,7 @@
         <property name="useLegacyDatetimeCode">false</property>
         <property name="serverTimezone">UTC</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="com.company.Disease" />
+        <mapping class="com.company.Entitys.Disease" />
 
     </session-factory>
 </hibernate-configuration>

@@ -15,6 +15,16 @@ public class StartUI extends JFrame {
     private JButton loginAsUserButton = new JButton("Login as user");
     private JButton loginAsDoctorButton = new JButton("Login as doctor");
 
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public void setFrame(JFrame frame) {
+        this.frame = frame;
+    }
+
+    private JFrame frame = new JFrame("Login");
+
 
     public JTextField getPasswordTextField() {
         return passwordTextField;
@@ -32,7 +42,7 @@ public class StartUI extends JFrame {
         healthBotLoginWindowPanel.add(loginAsDoctorButton);
         healthBotLoginWindowPanel.add(loginAsUserButton);
 
-        JFrame frame = new JFrame("Login");
+
 
         frame.setContentPane(healthBotLoginWindowPanel);
 

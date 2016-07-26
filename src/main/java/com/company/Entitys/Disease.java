@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Entitys;
 
 import javax.persistence.*;
 import java.util.ArrayList;
