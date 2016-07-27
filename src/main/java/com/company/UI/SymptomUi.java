@@ -1,7 +1,9 @@
 package com.company.UI;
 
 import com.company.Listeners.AddDiseaseActionListener;
+import com.company.Listeners.AddSymptomActionListener;
 import com.company.Listeners.DelDiseaseActionListener;
+import com.company.Listeners.DelSymptomActionListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -72,10 +74,10 @@ public class SymptomUi extends JFrame {
         frame.setSize(400, 400);
         frame.setVisible(true);
 
-        AddDiseaseActionListener pushButtonEvent01 = new AddDiseaseActionListener();
+        AddSymptomActionListener pushButtonEvent01 = new AddSymptomActionListener();
         addSymptomButton.addActionListener(pushButtonEvent01);
 
-        DelDiseaseActionListener pushButtonEvent02 = new DelDiseaseActionListener();
+        DelSymptomActionListener pushButtonEvent02 = new DelSymptomActionListener();
         delSymptomButton.addActionListener(pushButtonEvent02);
 
     }
