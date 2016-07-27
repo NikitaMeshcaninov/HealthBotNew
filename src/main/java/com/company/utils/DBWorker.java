@@ -12,9 +12,9 @@ import static com.company.Listeners.LoginAsDoctorActionListener.win;
  * Created by cube on 09.07.2016.
  */
 public class DBWorker {
-    private String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    private String DB_DRIVER = "com.mysql.jdbc.Driver";
     private String DB_USER = "root";
-    private String DB_PASSWORD = "kd-x150";
+    private String DB_PASSWORD = "root";
     private String DB_CONNECTION = "jdbc:mysql://localhost:3306/hb";
     //jdbc:mysql://hostname:port/dbname
     private static int id = 1;
@@ -101,11 +101,11 @@ public class DBWorker {
     public String getDiseaseNameById(int id) {
         try (Connection connection = getDBConnection();
              PreparedStatement preparedStatement =
-                     connection.prepareStatement("SELECT * FROM DBUSER WHERE Disease_ID = ?")) {
+                     connection.prepareStatement("SELECT * FROM disease WHERE diseaseID = ?")) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                return rs.getString("Disease_ID");
+                return rs.getString("diseaseName");
             }
         } catch (SQLException e) {
             e.printStackTrace();

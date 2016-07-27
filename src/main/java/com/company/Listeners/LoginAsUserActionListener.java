@@ -1,6 +1,8 @@
 package com.company.Listeners;
 
 import com.company.Main;
+import com.company.UI.SymptomUi;
+import com.company.UI.UserUi;
 import com.company.utils.DBWorker;
 
 import java.awt.event.ActionEvent;
@@ -11,15 +13,13 @@ import java.sql.SQLException;
  * Created by Nikita on 14.07.2016.
  */
 public class LoginAsUserActionListener implements ActionListener {
+    public static UserUi winUser;
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        DBWorker someDBWorker = new DBWorker();
-        try {
-            someDBWorker.createHBDiseaseTable();
-        } catch (SQLException e1) {
-            e1.printStackTrace();
-        }
-
-
+            winUser = new UserUi();
+            winUser.userWindow();
+            Main.loginWindow.getFrame().setVisible(false);
     }
 }
