@@ -1,8 +1,9 @@
 package com.company.UI;
 
-import com.company.Listeners.LoginAsDoctorActionListener;
+import com.company.Listeners.LoginDiseaseActionListener;
 import com.company.Listeners.LoginAsUserActionListener;
 import com.company.Listeners.LoginSymptomActionListener;
+import com.sun.deploy.panel.JSmartTextArea;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,15 @@ public class UserUi extends JFrame {
     private JButton loginAsUserButton = new JButton("TEST BUTTON 0");
     private JButton loginAsDoctorButtonDisease = new JButton("TEST BUTTON 1 ");
     private JButton loginAsDoctorButtonSymptom = new JButton("TEST BUTTON 2 ");
+    private JTextArea textArea = new JSmartTextArea("Some text");
+
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+    public void setTextArea(JTextArea textArea) {
+        this.textArea = textArea;
+    }
 
     public JFrame getFrame() {
         return frame;
@@ -35,20 +45,21 @@ public class UserUi extends JFrame {
 
     public void userWindow() {
 
-        JPanel healthBotLoginWindowPanel = new JPanel();
+        JPanel panel = new JPanel();
 
         FlowLayout fl = new FlowLayout();
-        healthBotLoginWindowPanel.setLayout(fl);
+        panel.setLayout(fl);
 
-        healthBotLoginWindowPanel.add(loginTextField);
-        healthBotLoginWindowPanel.add(passwordTextField);
-        healthBotLoginWindowPanel.add(loginAsDoctorButtonDisease);
-        healthBotLoginWindowPanel.add(loginAsDoctorButtonSymptom);
-        healthBotLoginWindowPanel.add(loginAsUserButton);
+        panel.add(loginTextField);
+        panel.add(passwordTextField);
+        panel.add(loginAsDoctorButtonDisease);
+        panel.add(loginAsDoctorButtonSymptom);
+        panel.add(loginAsUserButton);
+        panel.add(textArea);
 
 
 
-        frame.setContentPane(healthBotLoginWindowPanel);
+        frame.setContentPane(panel);
 
         frame.setSize(600, 200);
         frame.setVisible(true);
@@ -56,7 +67,7 @@ public class UserUi extends JFrame {
         LoginAsUserActionListener pushButtonLoginAsUserEvent = new LoginAsUserActionListener();
         loginAsUserButton.addActionListener(pushButtonLoginAsUserEvent);
 
-        LoginAsDoctorActionListener pushButtonLoginAsDoctorEvent02 = new LoginAsDoctorActionListener();
+        LoginDiseaseActionListener pushButtonLoginAsDoctorEvent02 = new LoginDiseaseActionListener();
         loginAsDoctorButtonDisease.addActionListener(pushButtonLoginAsDoctorEvent02);
 
         LoginSymptomActionListener pushButtonLoginAsDoctorEvent01 = new LoginSymptomActionListener();

@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Nikita on 14.07.2016.
  */
-public class LoginAsDoctorActionListener implements ActionListener {
+public class LoginDiseaseActionListener implements ActionListener {
     public static DiseaseUI win;
 
 

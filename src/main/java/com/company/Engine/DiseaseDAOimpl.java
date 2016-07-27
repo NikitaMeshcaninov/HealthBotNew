@@ -1,7 +1,9 @@
 package com.company.Engine;
 
 import com.company.Entitys.Disease;
+import com.company.Listeners.LoginDiseaseActionListener;
 import com.company.utils.HibernateUtil;
+import com.sun.deploy.panel.JSmartTextArea;
 import org.hibernate.Session;
 import org.hibernate.mapping.List;
 
@@ -38,7 +40,10 @@ public class DiseaseDAOimpl implements DiseaseDAO {
             session.beginTransaction();
             session.delete(disease);
             session.getTransaction().commit();
-
+            String succes = "Succes";
+            JTextArea textArea = new JTextArea(succes);
+            LoginDiseaseActionListener.win.setTextArea(textArea);
+            LoginDiseaseActionListener.win.revalidate();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
@@ -49,13 +54,14 @@ public class DiseaseDAOimpl implements DiseaseDAO {
     }
 
     @Override
-    public Disease getDiseaseById(Long id) throws SQLException {
-
+    public void getDiseaseById(Long id) throws SQLException {
+        HibernateUtil.init();
         Session session = null;
         Disease disease = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             disease = (Disease) session.load(Disease.class, id);
+            System.out.println(disease.toString());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
@@ -63,7 +69,7 @@ public class DiseaseDAOimpl implements DiseaseDAO {
                 session.close();
             }
         }
-        return disease;
+
     }
 
     @Override

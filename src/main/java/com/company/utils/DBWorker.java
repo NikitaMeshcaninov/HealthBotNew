@@ -1,12 +1,10 @@
 package com.company.utils;
 
-import com.company.Listeners.LoginAsDoctorActionListener;
+import com.company.Listeners.LoginDiseaseActionListener;
 
 import java.sql.*;
 import java.text.DateFormat;
 import java.util.Date;
-
-import static com.company.Listeners.LoginAsDoctorActionListener.win;
 
 /**
  * Created by cube on 09.07.2016.
@@ -81,15 +79,15 @@ public class DBWorker {
 
     public void addDiseaseToDB() {
         String insertTableSQL = "INSERT INTO disease (name, synonymus) VALUES ('" +
-                LoginAsDoctorActionListener.win.getDiseaseTextField().getText() + "' , " +
-                "'" + LoginAsDoctorActionListener.win.getDiseaseNameSynonymsfield().getText() + "')";
+                LoginDiseaseActionListener.win.getDiseaseTextField().getText() + "' , " +
+                "'" + LoginDiseaseActionListener.win.getDiseaseNameSynonymsfield().getText() + "')";
 
 
         try (Connection dbConnection = getDBConnection();// Непонятно , что тут происходит
              PreparedStatement preparedStatement = dbConnection.prepareStatement(insertTableSQL)) {
 
             preparedStatement.execute();
-            System.out.println("Disease" + LoginAsDoctorActionListener.win.getDiseaseTextField().getText()
+            System.out.println("Disease" + LoginDiseaseActionListener.win.getDiseaseTextField().getText()
                     + "successful add to DB!!!");
             id++;
             System.exit(0);

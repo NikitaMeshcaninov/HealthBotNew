@@ -57,4 +57,14 @@ public class Disease {
     public void setSpecialistType(String specialistType) {
         this.specialistType = specialistType;
     }
+
+    @Override
+    public String toString() {
+        return "Disease{" +
+                "diseaseID=" + diseaseID +
+                ", diseaseName='" + diseaseName + '\'' +
+                ", diseaseNameSynonyms='" + diseaseNameSynonyms + '\'' +
+                ", specialistType='" + specialistType + '\'' +
+                '}';
+    }
 }

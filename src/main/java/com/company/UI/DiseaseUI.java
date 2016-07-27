@@ -1,6 +1,8 @@
 package com.company.UI;
 
 import com.company.Listeners.*;
+import com.sun.deploy.panel.JSmartTextArea;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,14 +12,23 @@ public class DiseaseUI extends JFrame {
     private JLabel disease = new JLabel("Disease :");
     private JTextField diseaseTextField = new JTextField(10);
     private JLabel deseaseID = new JLabel("deseaseID :");
-    public JTextField deseaseIDtextField = new JTextField(10);
+    private JTextField deseaseIDtextField = new JTextField(10);
     private JLabel diseaseNameSynonyms = new JLabel("diseaseNameSynonyms :");
     private JTextField diseaseNameSynonymsfield = new JTextField(30);
     private JLabel diseaseSpecialistType = new JLabel("Specialist type :");
     private JTextField diseaseSpecialistTypeField = new JTextField(30);
     private JButton addDiseaseButton = new JButton("Add Disease");
     private JButton delDiseaseButton = new JButton("Del Disease");
+    private JButton getDiseaseById = new JButton("Get disease by id");
+    private JTextArea textArea = new JTextArea("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+    public void setTextArea(JTextArea textArea) {
+        this.textArea = textArea;
+    }
 
     public JTextField getDiseaseTextField() {
         return diseaseTextField;
@@ -41,26 +52,28 @@ public class DiseaseUI extends JFrame {
 
     public void healthBotWindow() {
 
-        JPanel healthBotWindowPanel = new JPanel();
+        JPanel panel = new JPanel();
 
         FlowLayout fl = new FlowLayout();
-        healthBotWindowPanel.setLayout(fl);
+        panel.setLayout(fl);
 
-        healthBotWindowPanel.add(disease);
-        healthBotWindowPanel.add(diseaseTextField);
-        healthBotWindowPanel.add(deseaseID);
-        healthBotWindowPanel.add(deseaseIDtextField);
-        healthBotWindowPanel.add(diseaseNameSynonyms);
-        healthBotWindowPanel.add(diseaseNameSynonymsfield);
-        healthBotWindowPanel.add(diseaseSpecialistType);
-        healthBotWindowPanel.add(diseaseSpecialistTypeField);
-        healthBotWindowPanel.add(addDiseaseButton);
-        healthBotWindowPanel.add(delDiseaseButton);
+        panel.add(disease);
+        panel.add(diseaseTextField);
+        panel.add(deseaseID);
+        panel.add(deseaseIDtextField);
+        panel.add(diseaseNameSynonyms);
+        panel.add(diseaseNameSynonymsfield);
+        panel.add(diseaseSpecialistType);
+        panel.add(diseaseSpecialistTypeField);
+        panel.add(addDiseaseButton);
+        panel.add(delDiseaseButton);
+        panel.add(getDiseaseById);
+        panel.add(textArea);
 
 
         JFrame frame = new JFrame("Disease");
 
-        frame.setContentPane(healthBotWindowPanel);
+        frame.setContentPane(panel);
 
         frame.setSize(400, 400);
         frame.setVisible(true);
@@ -70,6 +83,9 @@ public class DiseaseUI extends JFrame {
 
         DelDiseaseActionListener pushButtonEvent02 = new DelDiseaseActionListener();
         delDiseaseButton.addActionListener(pushButtonEvent02);
+
+        GetDiseaseByIdActionListener pushButtonEvent03 = new GetDiseaseByIdActionListener();
+        getDiseaseById.addActionListener(pushButtonEvent03);
 
     }
 }

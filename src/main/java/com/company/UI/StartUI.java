@@ -1,7 +1,7 @@
 package com.company.UI;
 
 
-import com.company.Listeners.LoginAsDoctorActionListener;
+import com.company.Listeners.LoginDiseaseActionListener;
 import com.company.Listeners.LoginAsUserActionListener;
 import com.company.Listeners.LoginSymptomActionListener;
 
@@ -54,7 +54,7 @@ public class StartUI extends JFrame {
         LoginAsUserActionListener pushButtonLoginAsUserEvent = new LoginAsUserActionListener();
         loginAsUserButton.addActionListener(pushButtonLoginAsUserEvent);
 
-        LoginAsDoctorActionListener pushButtonLoginAsDoctorEvent02 = new LoginAsDoctorActionListener();
+        LoginDiseaseActionListener pushButtonLoginAsDoctorEvent02 = new LoginDiseaseActionListener();
         loginAsDoctorButtonDisease.addActionListener(pushButtonLoginAsDoctorEvent02);
 
         LoginSymptomActionListener pushButtonLoginAsDoctorEvent01 = new LoginSymptomActionListener();

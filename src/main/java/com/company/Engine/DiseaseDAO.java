@@ -14,7 +14,7 @@ public interface DiseaseDAO {
 
     void delDisease(Disease disease) throws SQLException;
 
-    Disease getDiseaseById(Long id) throws SQLException;
+    void getDiseaseById(Long id) throws SQLException;
 
     List getAllDisease() throws SQLException;
 

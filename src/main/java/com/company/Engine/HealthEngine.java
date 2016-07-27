@@ -3,7 +3,7 @@ package com.company.Engine;
 
 import com.company.Entitys.Disease;
 import com.company.Entitys.Symptom;
-import com.company.Listeners.LoginAsDoctorActionListener;
+import com.company.Listeners.LoginDiseaseActionListener;
 import com.company.Listeners.LoginSymptomActionListener;
 import com.company.utils.HibernateUtil;
 import org.hibernate.Session;
@@ -15,13 +15,13 @@ public class HealthEngine {
     public void addDisease() throws SQLException {
         HibernateUtil.init();
         Disease disease = new Disease();
-        disease.setDiseaseName(LoginAsDoctorActionListener.win.getDiseaseTextField().getText());
-        disease.setDiseaseNameSynonyms(LoginAsDoctorActionListener.win.getDiseaseNameSynonymsfield().getText());
-        disease.setSpecialistType(LoginAsDoctorActionListener.win.getDiseaseSpecialistTypeField().getText());
+        disease.setDiseaseName(LoginDiseaseActionListener.win.getDiseaseTextField().getText());
+        disease.setDiseaseNameSynonyms(LoginDiseaseActionListener.win.getDiseaseNameSynonymsfield().getText());
+        disease.setSpecialistType(LoginDiseaseActionListener.win.getDiseaseSpecialistTypeField().getText());
         DiseaseDAOimpl diseaseDAOimpl = new DiseaseDAOimpl();
         diseaseDAOimpl.addDisease(disease);
         String id  = Long.toString(disease.getDiseaseID());
-        LoginAsDoctorActionListener.win.deseaseIDtextField.setText(id);
+        LoginDiseaseActionListener.win.getDeseaseIDtextField().setText(id);
 
     }
 
@@ -29,19 +29,19 @@ public class HealthEngine {
         HibernateUtil.init();
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.createQuery("SELECT * from disease WHERE diseaseName =  " + LoginAsDoctorActionListener.win.getDiseaseTextField().getText());
+        session.createQuery("SELECT * from disease WHERE diseaseName =  " + LoginDiseaseActionListener.win.getDiseaseTextField().getText());
         // Disease disease = (Disease) session.load(Disease.class).list;
 
         session.getTransaction().commit();
 
-        LoginAsDoctorActionListener.win.deseaseIDtextField.setText("сюда звпилить ID");
+        LoginDiseaseActionListener.win.getDeseaseIDtextField().setText("сюда звпилить ID");
     }
 
     public void delDisease() {
         HibernateUtil.init();
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.createQuery("DELETE FROM Disease where diseaseID = " + LoginAsDoctorActionListener.win.getDeseaseIDtextField().getText()).executeUpdate();
+        session.createQuery("DELETE FROM Disease where diseaseID = " + LoginDiseaseActionListener.win.getDeseaseIDtextField().getText()).executeUpdate();
         session.getTransaction().commit();
     }
 
