@@ -61,7 +61,9 @@ public class DiseaseDAOimpl implements DiseaseDAO {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             disease = (Disease) session.load(Disease.class, id);
-            System.out.println(disease.toString());
+            LoginDiseaseActionListener.win.getDiseaseTextField().setText(disease.getDiseaseName());
+            LoginDiseaseActionListener.win.getDiseaseNameSynonymsfield().setText(disease.getDiseaseNameSynonyms());
+            LoginDiseaseActionListener.win.getDiseaseSpecialistTypeField().setText(disease.getSpecialistType());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
