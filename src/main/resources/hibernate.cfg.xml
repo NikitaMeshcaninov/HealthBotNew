@@ -17,6 +17,7 @@
 
         <mapping class="com.company.Entitys.Disease" />
         <mapping class="com.company.Entitys.Symptom" />
+        <mapping class="com.company.Entitys.Conection" />
 
     </session-factory>
 </hibernate-configuration>

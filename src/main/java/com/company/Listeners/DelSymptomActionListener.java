@@ -13,7 +13,7 @@ public class DelSymptomActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         HealthEngine someInstance = new HealthEngine();
-        someInstance.delSymptom();
+        someInstance.delSymptomById();
     }
 }
 

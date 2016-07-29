@@ -10,6 +10,6 @@ public class DelDiseaseActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         HealthEngine someInstance = new HealthEngine();
-        someInstance.delDisease();
+        someInstance.delDiseaseById();
     }
 }

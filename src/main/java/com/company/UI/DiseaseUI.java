@@ -21,6 +21,10 @@ public class DiseaseUI extends JFrame {
     private JButton delDiseaseButton = new JButton("Del Disease");
     private JButton getDiseaseById = new JButton("Get disease by id");
     private JTextArea textArea = new JTextArea("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    private JLabel symptomForConect = new JLabel("Add symptom name for conect");
+    private JTextField symptomForConectTextField = new JTextField(10);
+    private JButton addConect = new JButton("Add conection");
+
 
     public JTextArea getTextArea() {
         return textArea;
@@ -50,6 +54,14 @@ public class DiseaseUI extends JFrame {
         return diseaseSpecialistTypeField;
     }
 
+    public JTextField getSymptomForConectTextField() {
+        return symptomForConectTextField;
+    }
+
+    public void setSymptomForConectTextField(JTextField symptomForConectTextField) {
+        this.symptomForConectTextField = symptomForConectTextField;
+    }
+
     public void healthBotWindow() {
 
         JPanel panel = new JPanel();
@@ -69,6 +81,9 @@ public class DiseaseUI extends JFrame {
         panel.add(delDiseaseButton);
         panel.add(getDiseaseById);
         panel.add(textArea);
+        panel.add(symptomForConect);
+        panel.add(symptomForConectTextField);
+        panel.add(addConect);
 
 
         JFrame frame = new JFrame("Disease");
@@ -86,6 +101,9 @@ public class DiseaseUI extends JFrame {
 
         GetDiseaseByIdActionListener pushButtonEvent03 = new GetDiseaseByIdActionListener();
         getDiseaseById.addActionListener(pushButtonEvent03);
+
+        AddConectionActionListener pushButtonEvent04 = new AddConectionActionListener();
+        addConect.addActionListener(pushButtonEvent04);
 
     }
 }

@@ -40,10 +40,6 @@ public class DiseaseDAOimpl implements DiseaseDAO {
             session.beginTransaction();
             session.delete(disease);
             session.getTransaction().commit();
-            String succes = "Succes";
-            JTextArea textArea = new JTextArea(succes);
-            LoginDiseaseActionListener.win.setTextArea(textArea);
-            LoginDiseaseActionListener.win.revalidate();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
