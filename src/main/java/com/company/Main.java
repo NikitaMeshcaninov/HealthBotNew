@@ -12,3 +12,4 @@ public class Main {
         loginWindow.healthBotLoginWindow();
     }
 }
+// для того чтобы один модуль видел другой нужно его добавить в его Дипенденси

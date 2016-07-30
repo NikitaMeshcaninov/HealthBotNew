@@ -127,14 +127,3 @@ public class SymptomDAOimpl implements SymptomDAO {
         return t;
     }
 }
-   /* public List<Profession> findProfession() {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        List<Profession> result = session.createQuery("from Profession order by professionName").list();
-        // Насильная инициализация списка. Не очень хорошая практика так делать
-        for (Profession a : result) {
-            Hibernate.initialize(a.getSubjectList());
-        }
-        session.getTransaction().commit();
-        return result;
-    }*/
