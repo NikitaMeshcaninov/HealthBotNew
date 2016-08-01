@@ -20,7 +20,7 @@ public class SymptomUi extends JFrame {
     private JTextField symptomIdTextField = new JTextField(10);
 
     private JLabel symptomNameSynonyms = new JLabel("symptomNameSynonyms :");
-    private JTextField symptomNameSynonymsfield = new JTextField(30);
+    private JTextField symptomNameSynonymsfield = new JTextField(10);
 
     public JTextField getSymptomNameTextField() {
         return symptomNameTextField;

@@ -9,7 +9,9 @@ import com.company.Listeners.LoginSymptomActionListener;
 import com.company.utils.HibernateUtil;
 import org.hibernate.Session;
 
+import javax.swing.*;
 import java.sql.SQLException;
+import java.util.List;
 
 public class HealthEngine {
 
@@ -64,6 +66,30 @@ public class HealthEngine {
         conection.setSymptomid((int) symptom.getSymptomId());
         ConectionDAOimpl conectionDAOimpl = new ConectionDAOimpl();
         conectionDAOimpl.addConection(conection);
+    }
+
+    public void findUserDisease(String symptomName) {
+        Session session = null;
+        List t = null;
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            t = session.createQuery("SELECT disease.diseaseName from Symptom " +
+                    "INNER JOIN conection " +
+                    "ON symptom.symptomid = conection.symptomid " +
+                    "INNER JOIN disease " +
+                    "ON conection.diseaseid = disease.diseaseID " +
+                    "WHERE symptom.symptomName = :symptom_name").setParameter("symptom_name",symptomName).list();
+            System.out.println(t.toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+
     }
 
 }

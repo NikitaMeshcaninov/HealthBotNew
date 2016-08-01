@@ -1,5 +1,6 @@
 package com.company.UI;
 
+import com.company.Listeners.FindDiseaseActionLIstener;
 import com.company.Listeners.LoginDiseaseActionListener;
 import com.company.Listeners.LoginAsUserActionListener;
 import com.company.Listeners.LoginSymptomActionListener;
@@ -13,34 +14,69 @@ import java.awt.*;
  */
 public class UserUi extends JFrame {
 
-    private JLabel loginTextField = new JLabel("TEST");
-    private JTextField passwordTextField = new JTextField(10);
-    private JButton loginAsUserButton = new JButton("TEST BUTTON 0");
-    private JButton loginAsDoctorButtonDisease = new JButton("TEST BUTTON 1 ");
-    private JButton loginAsDoctorButtonSymptom = new JButton("TEST BUTTON 2 ");
-    private JTextArea textArea = new JSmartTextArea("Some text");
+    private JLabel userSymptom = new JLabel("Введите симптом и нажмите клавишу \"Найти болезнь\"");
+    private JTextField userSymptomTextField = new JTextField(10);
+    private JButton findDiseaseButton = new JButton("Найти болезнь");
+    private JLabel workDiscriptonText = new JLabel("Вероятно вы страдаете от");
+    private JTextField userDisease = new JTextField(10);
+    private JLabel userDiseaseSpecialist = new JLabel("Вам необходимо обратиться к ");
+    private JTextField userSpecialist = new JTextField(10);
 
-    public JTextArea getTextArea() {
-        return textArea;
+
+    public JLabel getUserSymptom() {
+        return userSymptom;
     }
 
-    public void setTextArea(JTextArea textArea) {
-        this.textArea = textArea;
+    public void setUserSymptom(JLabel userSymptom) {
+        this.userSymptom = userSymptom;
     }
 
-    public JFrame getFrame() {
-        return frame;
+    public JTextField getUserSymptomTextField() {
+        return userSymptomTextField;
     }
 
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
+    public void setUserSymptomTextField(JTextField userSymptomTextField) {
+        this.userSymptomTextField = userSymptomTextField;
     }
 
-    private JFrame frame = new JFrame("Login");
+    public JButton getFindDiseaseButton() {
+        return findDiseaseButton;
+    }
 
+    public void setFindDiseaseButton(JButton findDiseaseButton) {
+        this.findDiseaseButton = findDiseaseButton;
+    }
 
-    public JTextField getPasswordTextField() {
-        return passwordTextField;
+    public JLabel getWorkDiscriptonText() {
+        return workDiscriptonText;
+    }
+
+    public void setWorkDiscriptonText(JLabel workDiscriptonText) {
+        this.workDiscriptonText = workDiscriptonText;
+    }
+
+    public JTextField getUserDisease() {
+        return userDisease;
+    }
+
+    public void setUserDisease(JTextField userDisease) {
+        this.userDisease = userDisease;
+    }
+
+    public JLabel getUserDiseaseSpecialist() {
+        return userDiseaseSpecialist;
+    }
+
+    public void setUserDiseaseSpecialist(JLabel userDiseaseSpecialist) {
+        this.userDiseaseSpecialist = userDiseaseSpecialist;
+    }
+
+    public JTextField getUserSpecialist() {
+        return userSpecialist;
+    }
+
+    public void setUserSpecialist(JTextField userSpecialist) {
+        this.userSpecialist = userSpecialist;
     }
 
     public void userWindow() {
@@ -50,28 +86,23 @@ public class UserUi extends JFrame {
         FlowLayout fl = new FlowLayout();
         panel.setLayout(fl);
 
-        panel.add(loginTextField);
-        panel.add(passwordTextField);
-        panel.add(loginAsDoctorButtonDisease);
-        panel.add(loginAsDoctorButtonSymptom);
-        panel.add(loginAsUserButton);
-        panel.add(textArea);
+        panel.add(userSymptom);
+        panel.add(userSymptomTextField);
+        panel.add(findDiseaseButton);
+        panel.add(workDiscriptonText);
+        panel.add(userDisease);
+        panel.add(userDiseaseSpecialist);
+        panel.add(userSpecialist);
 
-
+        JFrame frame = new JFrame();
 
         frame.setContentPane(panel);
 
         frame.setSize(600, 200);
         frame.setVisible(true);
 
-        LoginAsUserActionListener pushButtonLoginAsUserEvent = new LoginAsUserActionListener();
-        loginAsUserButton.addActionListener(pushButtonLoginAsUserEvent);
-
-        LoginDiseaseActionListener pushButtonLoginAsDoctorEvent02 = new LoginDiseaseActionListener();
-        loginAsDoctorButtonDisease.addActionListener(pushButtonLoginAsDoctorEvent02);
-
-        LoginSymptomActionListener pushButtonLoginAsDoctorEvent01 = new LoginSymptomActionListener();
-        loginAsDoctorButtonSymptom.addActionListener(pushButtonLoginAsDoctorEvent01);
-
+        FindDiseaseActionLIstener pushButtonEvent= new FindDiseaseActionLIstener();
+        findDiseaseButton.addActionListener(pushButtonEvent);
     }
 }
+

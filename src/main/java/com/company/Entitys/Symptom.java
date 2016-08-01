@@ -48,5 +48,5 @@ public class Symptom {
         this.symptomSynonyms = symptomSynonyms;
     }
     public Symptom() {
-    }
+     }
 }
