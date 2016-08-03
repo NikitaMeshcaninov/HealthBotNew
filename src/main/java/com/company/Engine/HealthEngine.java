@@ -121,7 +121,7 @@ public class HealthEngine {
                     "INNER JOIN conection " +
                     "ON symptom.symptomid = conection.symptomid " +
                     "INNER JOIN disease ON conection.diseaseid = disease.diseaseID " +
-                    "WHERE symptom.symptomName =" + symptomName)/*.setParameter("symptom_name", symptomName)*/
+                    "WHERE symptom.symptomName =" + symptomName)
                     .setResultTransformer(Transformers.aliasToBean(Disease.class))
                     .list();
             result = (Disease) t.get(0);
