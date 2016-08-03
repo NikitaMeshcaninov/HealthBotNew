@@ -4,13 +4,16 @@ package com.company.Engine;
 import com.company.Entitys.Conection;
 import com.company.Entitys.Disease;
 import com.company.Entitys.Symptom;
+import com.company.Listeners.LoginAsUserActionListener;
 import com.company.Listeners.LoginDiseaseActionListener;
 import com.company.Listeners.LoginSymptomActionListener;
 import com.company.utils.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.transform.Transformers;
 
 import javax.swing.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HealthEngine {
@@ -71,16 +74,25 @@ public class HealthEngine {
     public void findUserDisease(String symptomName) {
         Session session = null;
         List t = null;
+        Disease result = null;
         try {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            t = session.createQuery("SELECT disease.diseaseName from Symptom " +
+            t = session.createSQLQuery("SELECT disease.diseaseID, " +
+                    "disease.diseaseName,disease.d" +
+                    "iseaseNameSynonyms," +
+                    "disease.specialistType " +
+                    "from Symptom " +
                     "INNER JOIN conection " +
                     "ON symptom.symptomid = conection.symptomid " +
-                    "INNER JOIN disease " +
-                    "ON conection.diseaseid = disease.diseaseID " +
-                    "WHERE symptom.symptomName = :symptom_name").setParameter("symptom_name",symptomName).list();
-            System.out.println(t.toString());
+                    "INNER JOIN disease ON conection.diseaseid = disease.diseaseID " +
+                    "WHERE symptom.symptomName =:symptom_name").setParameter("symptom_name", symptomName)
+                    .setResultTransformer(Transformers.aliasToBean(Disease.class))
+                    .list();
+            result = (Disease) t.get(0);
+
+            LoginAsUserActionListener.winUser.getUserDisease().setText(result.getDiseaseName());
+            LoginAsUserActionListener.winUser.getUserSpecialist().setText(result.getSpecialistType());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
         } finally {
@@ -88,8 +100,42 @@ public class HealthEngine {
                 session.close();
             }
         }
+    }
 
+    public List<Disease> findUserDisease(ArrayList<String> symptomNameList) {
+        Session session = null;
+        List t = null;
+        Disease result = null;
+        String symptomName = symptomNameList.get(0);
+        for (int i = 1; symptomNameList.size() > i; i++) {
+            symptomName = symptomName + " OR symptom.symptomName = " + symptomNameList.get(i);
+        }
+        try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            t = session.createSQLQuery("SELECT disease.diseaseID, " +
+                    "disease.diseaseName,disease.d" +
+                    "iseaseNameSynonyms," +
+                    "disease.specialistType " +
+                    "from Symptom " +
+                    "INNER JOIN conection " +
+                    "ON symptom.symptomid = conection.symptomid " +
+                    "INNER JOIN disease ON conection.diseaseid = disease.diseaseID " +
+                    "WHERE symptom.symptomName =" + symptomName)/*.setParameter("symptom_name", symptomName)*/
+                    .setResultTransformer(Transformers.aliasToBean(Disease.class))
+                    .list();
+            result = (Disease) t.get(0);
 
+            LoginAsUserActionListener.winUser.getUserDisease().setText(result.getDiseaseName());
+            LoginAsUserActionListener.winUser.getUserSpecialist().setText(result.getSpecialistType());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return t;
     }
 
 }

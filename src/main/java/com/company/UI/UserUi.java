@@ -14,8 +14,12 @@ import java.awt.*;
  */
 public class UserUi extends JFrame {
 
-    private JLabel userSymptom = new JLabel("Введите симптом и нажмите клавишу \"Найти болезнь\"");
-    private JTextField userSymptomTextField = new JTextField(10);
+    private JLabel userSymptom = new JLabel("Введите симптомs и нажмите клавишу \"Найти болезнь\"");
+    private JTextField userSymptomTextField1 = new JTextField(10);
+    private JTextField userSymptomTextField2 = new JTextField(10);
+    private JTextField userSymptomTextField3 = new JTextField(10);
+    private JTextField userSymptomTextField4 = new JTextField(10);
+    private JTextField userSymptomTextField5 = new JTextField(10);
     private JButton findDiseaseButton = new JButton("Найти болезнь");
     private JLabel workDiscriptonText = new JLabel("Вероятно вы страдаете от");
     private JTextField userDisease = new JTextField(10);
@@ -31,12 +35,44 @@ public class UserUi extends JFrame {
         this.userSymptom = userSymptom;
     }
 
-    public JTextField getUserSymptomTextField() {
-        return userSymptomTextField;
+    public JTextField getUserSymptomTextField1() {
+        return userSymptomTextField1;
     }
 
-    public void setUserSymptomTextField(JTextField userSymptomTextField) {
-        this.userSymptomTextField = userSymptomTextField;
+    public void setUserSymptomTextField1(JTextField userSymptomTextField1) {
+        this.userSymptomTextField1 = userSymptomTextField1;
+    }
+
+    public JTextField getUserSymptomTextField2() {
+        return userSymptomTextField2;
+    }
+
+    public void setUserSymptomTextField2(JTextField userSymptomTextField2) {
+        this.userSymptomTextField2 = userSymptomTextField2;
+    }
+
+    public JTextField getUserSymptomTextField3() {
+        return userSymptomTextField3;
+    }
+
+    public void setUserSymptomTextField3(JTextField userSymptomTextField3) {
+        this.userSymptomTextField3 = userSymptomTextField3;
+    }
+
+    public JTextField getUserSymptomTextField4() {
+        return userSymptomTextField4;
+    }
+
+    public void setUserSymptomTextField4(JTextField userSymptomTextField4) {
+        this.userSymptomTextField4 = userSymptomTextField4;
+    }
+
+    public JTextField getUserSymptomTextField5() {
+        return userSymptomTextField5;
+    }
+
+    public void setUserSymptomTextField5(JTextField userSymptomTextField5) {
+        this.userSymptomTextField5 = userSymptomTextField5;
     }
 
     public JButton getFindDiseaseButton() {
@@ -87,7 +123,11 @@ public class UserUi extends JFrame {
         panel.setLayout(fl);
 
         panel.add(userSymptom);
-        panel.add(userSymptomTextField);
+        panel.add(userSymptomTextField1);
+        panel.add(userSymptomTextField2);
+        panel.add(userSymptomTextField3);
+        panel.add(userSymptomTextField4);
+        panel.add(userSymptomTextField5);
         panel.add(findDiseaseButton);
         panel.add(workDiscriptonText);
         panel.add(userDisease);
@@ -101,7 +141,7 @@ public class UserUi extends JFrame {
         frame.setSize(600, 200);
         frame.setVisible(true);
 
-        FindDiseaseActionLIstener pushButtonEvent= new FindDiseaseActionLIstener();
+        FindDiseaseActionLIstener pushButtonEvent = new FindDiseaseActionLIstener();
         findDiseaseButton.addActionListener(pushButtonEvent);
     }
 }

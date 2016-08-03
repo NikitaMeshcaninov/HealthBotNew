@@ -111,8 +111,8 @@ public class SymptomDAOimpl implements SymptomDAO {
         try {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            t = (Symptom) session.createQuery("FROM Symptom WHERE symptomName ='" + name + "'").uniqueResult();
-           // for (Symptom symptom : symptoms )
+            t = (Symptom) session.createQuery("FROM Symptom " +
+                    "WHERE symptomName ='" + name + "'").uniqueResult();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ошибка I/O", JOptionPane.OK_OPTION);
