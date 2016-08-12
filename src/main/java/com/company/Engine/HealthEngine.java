@@ -8,6 +8,7 @@ import com.company.Listeners.LoginAsUserActionListener;
 import com.company.Listeners.LoginDiseaseActionListener;
 import com.company.Listeners.LoginSymptomActionListener;
 import com.company.utils.HibernateUtil;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Session;
 import org.hibernate.transform.Transformers;
 
@@ -137,6 +138,10 @@ public class HealthEngine {
         }
         return t;
     }
+    public static String md5Apache(String st) {
+        String md5Hex = DigestUtils.md5Hex(st);
 
+        return md5Hex;
+    }
 }
 
