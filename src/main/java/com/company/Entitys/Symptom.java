@@ -1,6 +1,7 @@
 package com.company.Entitys;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 /**
  * Created by Nikita on 26.07.2016.
@@ -16,6 +17,8 @@ public class Symptom {
     private String symptomName;
     @Column(name = "symptomSynonyms")
     private String symptomSynonyms;
+    @Column (name = "disease")
+    private ArrayList <Disease> disease;
 
     public long getSymptomId() {
         return symptomId;

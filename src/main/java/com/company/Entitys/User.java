@@ -13,15 +13,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "diseaseID")
     private long userId;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "email")
+    private String email;
     @Column(name = "password")
     private String password;
     @Column (name = "isadmin")
     private boolean isAdmin;
 
-    public User(String name, String password, boolean isAdmin) {
-        this.name = name;
+    public User(String email, String password, boolean isAdmin) {
+        this.email = email;
         this.password = password;
         this.isAdmin = isAdmin;
     }
@@ -37,12 +37,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -65,7 +65,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "userId=" + userId +
-                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", isAdmin=" + isAdmin +
                 '}';

@@ -3,18 +3,11 @@ package com.company.Entitys;
 import javax.persistence.*;
 import java.util.ArrayList;
 
-@Entity
-@Table(name = "disease")
+
 public class Disease {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "diseaseID")
     private long diseaseID;
-    @Column(name = "diseaseName")
     private String diseaseName;
-    @Column(name = "diseaseNameSynonyms")
     private String diseaseNameSynonyms;
-    @Column(name = "specialistType")
     private String specialistType;
 
     public Disease(String diseaseName, String diseaseNameSynonyms, String specialistType) {
