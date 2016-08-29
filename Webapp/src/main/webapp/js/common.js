@@ -72,10 +72,10 @@ $(document).ready(function() {
 	$("form").submit(function() {
 		$.ajax({
 			type: "GET",
-			url: "mail.php",
+			url: "/lol",
 			data: $("form").serialize()
 		}).done(function() {
-			alert("что то кудато отправилось");
+			alert(response().toString);
 			setTimeout(function() {
 				$.fancybox.close();
 			}, 1000);
@@ -97,4 +97,12 @@ $(document).ready(function() {
       itemsDesktopSmall : [979,3]
  
   });
+
+	$("#123").onclick(function() {
+		$("#request_central_panel").css("visibility", "hidden")
+
+	});
+	
+
+
 });
