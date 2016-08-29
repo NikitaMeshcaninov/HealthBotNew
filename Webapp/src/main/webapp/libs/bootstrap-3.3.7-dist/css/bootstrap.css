@@ -5457,8 +5457,10 @@ button.list-group-item-danger.active:focus {
   line-height: 1.3;
 }
 .panel {
+  opacity: 0.5;
+  margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #337AB7;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
